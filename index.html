@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f7">
+  <meta name="description" content="Dành riêng cho Ánh yêu — Một bó hoa tươi thắm và bức thư tình 20/10 đong đầy nỗi nhớ gửi từ nơi xa.">
+  <title>Gửi Ánh Yêu · 20/10 Đong Đầy Thương Nhớ ❀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./music.js" defer></script>
+  <script src="./script.js" defer></script>
+  <script src="./card.js" defer></script>
+  <script src="./album.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="top-nav-bar">
+      <button class="music-toggle-btn" id="musicToggle" type="button" aria-pressed="false" title="Bật/Tắt nhạc tình yêu">
+        <span class="music-disc-icon" aria-hidden="true">♫</span>
+        <span class="music-label">Bật nhạc cho Ánh</span>
+        <span class="music-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+      <a class="garden-link" href="./garden.html">Vườn hoa tình yêu <span aria-hidden="true">❀</span></a>
+    </div>
+
+    <canvas id="ambientPetalsCanvas" aria-hidden="true"></canvas>
+
+    <header class="greeting">
+      <div class="love-distance-badge" role="status">
+        <span class="badge-sparkle">✨</span> Dù cách xa vạn dặm, trọn vẹn tim anh hướng về Ánh <span class="badge-sparkle">✨</span>
+      </div>
+      <p class="occasion">Ngày Phụ nữ Việt Nam <span>20/10</span></p>
+      <h1>Một bó hoa tươi,<br>gửi ngàn yêu thương tới Ánh.</h1>
+      <p class="greeting-caption">Dù hôm nay anh ở xa không thể kề bên, mong ngày của em thật ngọt ngào & an yên ♡</p>
+    </header>
+
+    <div class="gift-layout">
+      <section class="scene-column" aria-label="Bó hoa hồng tình yêu dành tặng Ánh">
+        <div class="gift-visuals">
+          <div class="bouquet-composition">
+            <div id="bouquetStageWrapper" role="button" tabindex="0"
+              aria-label="Bó hoa hồng dành cho Ánh. Nhấn để nhận lời thì thầm yêu thương."
+              aria-describedby="bouquetHint">
+              <canvas id="bouquetCanvas" aria-hidden="true"></canvas>
+            </div>
+            <button class="envelope-button" id="openCard" type="button" aria-haspopup="dialog" aria-controls="greetingCard" aria-expanded="false" hidden>
+              <span class="envelope" aria-hidden="true">
+                <span class="envelope-letter">Ánh yêu</span>
+                <span class="envelope-seal">♡</span>
+              </span>
+              <span class="envelope-caption">Thư tình gửi Ánh yêu</span>
+              <span class="envelope-action">Mở thư ♡</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="scene-footer">
+          <p id="bouquetHint" class="bouquet-hint">Chạm một bông hoa để lắng nghe lời thì thầm của anh</p>
+          <p id="roseWish" class="rose-wish" role="status" aria-live="polite" aria-atomic="true"></p>
+          <button class="text-button" id="replayBloom" type="button">Cho hoa nở lại rực rỡ <span aria-hidden="true">↻</span></button>
+        </footer>
+      </section>
+
+      <dialog id="greetingCard" class="card-dialog" aria-labelledby="cardTitle">
+        <div class="letter-paper">
+          <button class="close-button" id="closeCard" type="button" aria-label="Đóng thiệp">×</button>
+          <div id="cardReading">
+            <div class="letter-date" aria-label="Ngày 20 tháng 10">
+              <span>20</span><span class="date-stem" aria-hidden="true"></span><span>10</span>
+            </div>
+            <p class="letter-recipient">Gửi <span id="cardRecipient">Ánh yêu của anh</span>,</p>
+            <h2 id="cardTitle">Chúc em một ngày 20/10<br>thật nhiều yêu thương & bình an.</h2>
+            <div class="letter-flower" aria-hidden="true">❀</div>
+            <p id="cardMessage" class="letter-message"></p>
+            <div class="letter-signoff">
+              <p>Với tất cả tình yêu và nỗi nhớ,</p>
+              <p id="cardSender" class="letter-signature">Người yêu em nhiều nhất ♡</p>
+            </div>
+            <div class="letter-fold" aria-hidden="true"></div>
+            <div class="letter-actions">
+              <button id="viewAlbum" class="text-button" type="button" aria-controls="memoryAlbum">Xem album ảnh của Ánh <span aria-hidden="true">♡</span></button>
+            </div>
+          </div>
+          <p id="cardStatus" class="card-status" role="status" aria-live="polite"></p>
+        </div>
+      </dialog>
+    </div>
+
+    <section id="memoryAlbum" class="memory-album" aria-labelledby="albumTitle" hidden>
+      <header class="album-heading">
+        <p class="album-note">Dành riêng cho cô gái anh thương nhất</p>
+        <h2 id="albumTitle">Góc Kỷ Niệm Của Ánh ♡</h2>
+        <div class="album-controls">
+          <button id="toggleAlbum" class="text-button" type="button" aria-expanded="false" aria-controls="albumPhotos">Xòe album <span aria-hidden="true">♡</span></button>
+        </div>
+      </header>
+      <p id="albumStatus" class="album-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      
+      <div id="albumPhotos" class="album-photos">
+        <!-- Photo 1 -->
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo" title="Chạm để phóng to ảnh">
+            <img src="./assets/photos/anh_1.jpg" alt="Ánh rực rỡ ôm ba bó hoa tươi 20/10" width="768" height="1024" decoding="async">
+            <div class="photo-zoom-hint" aria-hidden="true">🔍 Phóng to</div>
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Nụ cười rạng rỡ hơn ngàn đóa hoa tươi.</span>
+            <span class="portrait-date">Khoảnh khắc rạng ngời · 20/10</span>
+          </figcaption>
+        </figure>
+
+        <!-- Photo 2 -->
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo" title="Chạm để phóng to ảnh">
+            <img src="./assets/photos/anh_2.png" alt="Selfie cute che mặt đáng yêu của Ánh" width="768" height="1024" decoding="async" loading="lazy">
+            <div class="photo-zoom-hint" aria-hidden="true">🔍 Phóng to</div>
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Cô gái đáng yêu nhất quả đất của anh.</span>
+            <span class="portrait-date">Nụ cười làm tan chảy trái tim anh</span>
+          </figcaption>
+        </figure>
+
+        <!-- Photo 3 -->
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo" title="Chạm để phóng to ảnh">
+            <img src="./assets/photos/anh_3.png" alt="Ánh xinh đẹp lộng lẫy trong chiếc váy ren trắng kiêu sa" width="768" height="1024" decoding="async" loading="lazy">
+            <div class="photo-zoom-hint" aria-hidden="true">🔍 Phóng to</div>
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Nàng công chúa xinh đẹp nhất trong mắt anh.</span>
+            <span class="portrait-date">Khoảnh khắc tinh khôi & Ước hẹn tương lai</span>
+          </figcaption>
+        </figure>
+
+        <!-- Photo 4 -->
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo" title="Chạm để phóng to ảnh">
+            <img src="./assets/photos/anh_4.jpg" alt="Ánh ngồi ghế đá dịu dàng bên bó hoa" width="768" height="1024" decoding="async" loading="lazy">
+            <div class="photo-zoom-hint" aria-hidden="true">🔍 Phóng to</div>
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Bình yên là khi được ngắm nhìn em mỉm cười.</span>
+            <span class="portrait-date">Những phút giây dịu êm bên em</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="album-footnote">Mỗi khoảnh khắc có Ánh đều là khoảnh khắc đẹp nhất ♡</p>
+    </section>
+
+    <!-- Photo Lightbox Modal -->
+    <dialog id="photoLightbox" class="photo-lightbox" aria-label="Xem ảnh phóng to của Ánh">
+      <div class="lightbox-container">
+        <button class="lightbox-close" type="button" aria-label="Đóng xem ảnh">×</button>
+        <div class="lightbox-image-wrap">
+          <img class="lightbox-img" src="" alt="Ảnh phóng to của Ánh">
+        </div>
+        <div class="lightbox-caption"></div>
+        <p class="lightbox-heart-hint">Em bé của anh luôn xinh nhất trần đời ♡</p>
+      </div>
+    </dialog>
+
+    <noscript><p class="noscript-message">Bật JavaScript để ngắm hoa nở và mở thiệp 20/10 nhé.</p></noscript>
+  </main>
+</body>
+</html>
